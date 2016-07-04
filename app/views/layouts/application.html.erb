@@ -5,9 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+  	.left, .right{
+  		display: inline-block;
+		width: 49%;
+  	}
+  	.left{
+  		text-align: left;
+  	}
+  	.right{
+  		text-align: right;
+  	}
+  </style>
 </head>
 <body>
-<div>Logo</div>
+<div>
+	<span class="left">Logo</span>
+	<span class="right"><a href="/users/sign_in">Sign in</a> <a href="/users/sign_out" data-method="delete">Sign out</a></span>
+</div>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
