@@ -13,7 +13,7 @@
   <span>Hello, <%= current_user %></span> 
   <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 <% else %>
-  <%= link_to 'Sign in', new_user_session_path %>
+  <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Registration', new_user_registration_path %>
 <% end %>
 
 <p class="notice"><%= notice %></p>
