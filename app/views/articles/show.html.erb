@@ -10,13 +10,13 @@ Comment: <i><%= item.body %></i></p>
 
 <h3>Comments</h3>
 <%= form_for([@article, @article.comments.build]) do |f| %>
-	<p>
+	<p style="display: none">
 		<%= f.label :author %><br/>
-		<%= f.text_field :author %>
+		<%= f.text_field :author, :value => current_user.username %>
 	</p>
 	<p>	
 		<%= f.label :body %><br/>
 		<%= f.text_area :body %>
 	</p>
-	<p><%= f.submit %></p>
+	<p><%= f.submit(class: "btn btn-info") %></p>
 <% end %>

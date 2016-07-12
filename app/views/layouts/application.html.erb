@@ -2,24 +2,31 @@
 <html>
 <head>
   <title>Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
 </head>
 <body>
-
-<% if user_signed_in? %>
-  <span>Hello, <%= current_user.username %></span> 
-  <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Registration', new_user_registration_path %>
-<% end %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
-
+<div class="container">
+	<div class="row">
+		<% if user_signed_in? %>
+		  <span>Hello, <%= current_user.username %></span> 
+		  <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %>
+		<% else %>
+		  <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Registration', new_user_registration_path %>
+		<% end %>
+	</div>
+	<div class="row">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</div>
+	<div class="row">
+		<%= yield %>
+	</div>
+</div>
 </body>
 </html>
